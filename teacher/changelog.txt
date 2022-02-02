@@ -1,0 +1,19 @@
+<?php
+  
+  $mysql3 = "SELECT * FROM `student` NATURAL JOIN `enrolledclass` WHERE enrolledclass.classid1 = '$classid' ORDER BY `studentrollno` ASC ";
+  $mysql3result = mysqli_query($conn, $mysql3);
+  $count1 = mysqli_num_rows($mysql3result);
+  $totalpage = ceil($count1 / $limit);
+  echo '<div><ul class="pagination">';
+  for ($i = 1; $i <= $totalpage; $i++) {
+    echo '<li class="active"><a href="studentdetails.php?page=' . $i . '&classid=' . $classid . '">' . $i . '</a></li>';
+  }
+  echo '</ul></div>';
+  ?>
+</div> 
+
+
+
+
+
+LIMIT {$offset},{$limit} 
